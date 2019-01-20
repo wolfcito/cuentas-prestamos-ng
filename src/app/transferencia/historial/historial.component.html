@@ -25,9 +25,7 @@
     <div class="ui-g-12">
       <button type="button" icon="fa fa-search" label="Buscar" pButton (click)="obtenerHistorial($event)"></button>
     </div>  
-    <div class="ui-g-12">
-        {{ cuentaSeleccionada}} - {{ fechaDesde}} - {{ fechaHasta }} 
-      </div> 
+    <br/> 
 
       <br/>
       <p-table [columns]="cols" [value]="transferencias" selectionMode="single" dataKey="documento" [(selection)]="transferenciaSeleccionada"
@@ -53,6 +51,6 @@
         </ng-template>
       </p-table>
 
-      
+    </div>
   
 </div>
