@@ -23,9 +23,28 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
         this.model = [
             
 
-            // { label: 'DASHBOARD', icon: 'fa fa-fw fa-dashboard', routerLink: ['/']},
+           /*  { label: 'DASHBOARD', icon: 'fa fa-fw fa-dashboard', routerLink: ['/dash']}, */
 
             { label: 'Posición Consolidada', icon: 'fa fa-fw fa-area-chart', routerLink: ['/']},
+            { label: 'Transferencias', icon: 'fa fa-fw fa-area-chart',
+            items: [
+                { label: 'Historial', icon: 'fa fa-fw fa-square-o', routerLink: ['/transferencia-historial'] }]},
+             
+
+            /* {
+                label: 'PAGES', icon: 'fa fa-fw fa-cube',
+                items: [
+                    { label: 'Empty', icon: 'fa fa-fw fa-square-o', routerLink: ['/empty'] },
+                    { label: 'Login', icon: 'fa fa-fw fa-sign-in', url: 'assets/pages/login.html', target: '_blank' },
+                    { label: 'Landing', icon: 'fa fa-fw fa-certificate', url: 'assets/pages/landing.html', target: '_blank' },
+                    { label: 'Error', icon: 'fa fa-fw fa-exclamation-circle', url: 'assets/pages/error.html', target: '_blank' },
+                    { label: '404', icon: 'fa fa-fw fa-times', url: 'assets/pages/404.html', target: '_blank' },
+                    {
+                        label: 'Access Denied', icon: 'fa fa-fw fa-exclamation-triangle',
+                        url: 'assets/pages/access.html', target: '_blank'
+                    }
+                ]
+            }, */
             //{ label: 'Posición Consolidada', icon: 'fa fa-fw fa-area-chart', routerLink: ['/posicion-consolidada']},
    /*          { label: 'Préstamos', icon: 'fa fa-fw fa-list', routerLink: ['/prestamos']},
             { label: 'Transferencias', icon: 'fa fa-fw fa-list', routerLink: ['/transferencias']},

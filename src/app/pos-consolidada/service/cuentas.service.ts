@@ -4,9 +4,9 @@ import { Observable } from 'rxjs/internal/Observable';
 
 import { map, catchError, tap } from 'rxjs/operators';
 
-const endpointCuentas = '/ServicioCuenta/api/cuenta';
+const endpointCuentas = '/Modulo-Cuentas-Pll-web/api/cuenta/'; //1004456891
 const endpointPrestamos = '/ServicioPrestamo/api/prestamo';
-const endpointUsuarioKYC = '/KYC-mongo-rest-web/api/cliente/cedula/1007785605';
+const endpointUsuarioKYC = '/KYC-mongo-rest-web/api/cliente/cedula/'; //1007785605
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +20,13 @@ export class CuentasService {
     return body || {};
   }
 
-  getUnUsuario(): Observable<any> {
-    return this.http.get(endpointUsuarioKYC).pipe(
+  getUnUsuario(nCedula:String): Observable<any> {
+    return this.http.get(endpointUsuarioKYC+nCedula).pipe(
       map(this.extractData));
   }
 
-  getListaCuentas(): Observable<any> {
-    return this.http.get(endpointCuentas).pipe(
+  getListaCuentas(nCedula:String): Observable<any> {
+    return this.http.get(endpointCuentas+nCedula).pipe(
       map(this.extractData));
   }
 

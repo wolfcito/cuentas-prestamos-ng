@@ -17,10 +17,13 @@ import { DocumentationComponent } from './demo/view/documentation.component';
 //import { CuentasComponent} from './posicion-consolidada/view/cuentas.component';
 
 import { PosConsolidadaComponent} from './pos-consolidada/pos-consolidada.component';
+import { HistorialComponent } from './transferencia/historial/historial.component';
 
 export const routes: Routes = [
 
     { path: '', component: PosConsolidadaComponent },
+    { path: 'transferencia-historial', component: HistorialComponent },
+    /* { path: 'dash', component: FormsDemoComponent }, */
     /* { path: '', component: DashboardDemoComponent },
 
     { path: 'posicion-consolidada', component: PosConsolidadaComponent }, */
@@ -41,6 +44,7 @@ export const routes: Routes = [
     { path: 'charts', component: ChartsDemoComponent },
     { path: 'file', component: FileDemoComponent },
     { path: 'documentation', component: DocumentationComponent } */
+    
 ];
 
 export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'});

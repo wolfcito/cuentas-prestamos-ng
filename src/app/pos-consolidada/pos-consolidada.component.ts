@@ -29,9 +29,14 @@ export class PosConsolidadaComponent implements OnInit {
   unUsuario: Usuario;
   identificadorUsuario: MenuItem[];
 
+  //nCedula:String;
+  nCedulaKYC:String;
+
   constructor(private cuentasService: CuentasService) { }
 
   ngOnInit() {
+    //this.nCedula  = "1004456891";
+    this.nCedulaKYC =  "1007785605";
     this.obtenerListaCuentas();
     this.obtenerListaPrestamos();
     this.obtenerUnUsuario();
@@ -55,8 +60,8 @@ export class PosConsolidadaComponent implements OnInit {
 
   obtenerListaCuentas() {
     
-    this.cuentasService.getListaCuentas().subscribe((data) => {
-      console.log("lista Cuentas",data);
+    this.cuentasService.getListaCuentas(this.nCedulaKYC).subscribe((data) => {
+      console.log("Cuentas",data);
       this.cuentas1 = data;
     });
   }
@@ -64,17 +69,18 @@ export class PosConsolidadaComponent implements OnInit {
   obtenerListaPrestamos() {
     
     this.cuentasService.getListaPrestamos().subscribe((data) => {
-      console.log("lista Prestamos",data);
+      console.log("Prestamos",data);
       this.prestamos1 = data;
     });
   }
 
   obtenerUnUsuario() {
-    this.cuentasService.getUnUsuario().subscribe((data) => {
+    this.cuentasService.getUnUsuario(this.nCedulaKYC).subscribe((data) => {
       console.log("usr",data);
       this.identificadorUsuario = [];
       
       this.unUsuario = data;
+      
       this.identificadorUsuario.push({ label: this.unUsuario.apellidos + this.unUsuario.nombres + " - " + this.unUsuario.correoElectronico });
     });
   }

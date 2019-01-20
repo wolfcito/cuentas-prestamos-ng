@@ -1,0 +1,58 @@
+<div class="card card-w-title">
+  <h1>Historial de transferencias</h1>
+
+  <div class="ui-g form-group" style="margin-top:20px">
+    <div class="ui-g-12 ui-md-4">
+      <label for="pc-numero-cuenta">Número de Cuenta:</label>
+    </div>
+    <div class="ui-g-12 ui-md-8">
+      <p-dropdown id="pc-numero-cuenta" [options]="cuentas" [(ngModel)]="cuentaSeleccionada" optionLabel="cuenta" [autoWidth]="false" ></p-dropdown>
+    </div>
+    <div class="ui-g-12 ui-md-4">
+      <label for="pc-fecha-desde">Desde:</label>
+    </div>
+    <div class="ui-g-12 ui-md-8">
+      <p-calendar id="pc-fecha-desde" [(ngModel)]="fechaDesde" [showIcon]="true" placeholder="dd/MM/yyyy" ></p-calendar>
+    </div>
+
+    <div class="ui-g-12 ui-md-4">
+      <label for="pc-fecha-hasta">Hasta:</label>
+    </div>
+    <div class="ui-g-12 ui-md-8">
+      <p-calendar id="pc-fecha-hasta" [(ngModel)]="fechaHasta" [showIcon]="true" placeholder="dd/MM/yyyy" ></p-calendar>
+    </div>
+
+    <div class="ui-g-12">
+      <button type="button" icon="fa fa-search" label="Buscar" pButton (click)="obtenerHistorial($event)"></button>
+    </div>  
+    <div class="ui-g-12">
+        {{ cuentaSeleccionada}} - {{ fechaDesde}} - {{ fechaHasta }} 
+      </div> 
+
+      <br/>
+      <p-table [columns]="cols" [value]="transferencias" selectionMode="single" dataKey="documento" [(selection)]="transferenciaSeleccionada"
+        [paginator]="true" [rows]="10" [responsive]="true" paginatorPosition="both">
+        <ng-template pTemplate="caption">
+          LISTA DE TRANSFERENCIAS
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+              <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr [pSelectableRow]="rowData">
+            <td *ngFor="let col of columns">
+              <span class="ui-column-title">{{col.header}}</span>
+              {{rowData[col.field] }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+      
+  
+</div>

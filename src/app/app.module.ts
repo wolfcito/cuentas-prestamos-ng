@@ -99,6 +99,8 @@ import { NodeService } from './demo/service/nodeservice';
 import { PosConsolidadaComponent } from './pos-consolidada/pos-consolidada.component';
 
 import { CuentasService } from './pos-consolidada/service/cuentas.service';
+import { HistorialComponent } from './transferencia/historial/historial.component';
+import { FormatoFechaPipe } from './util/formato-fecha.pipe';
 
 @NgModule({
     imports: [
@@ -194,7 +196,9 @@ import { CuentasService } from './pos-consolidada/service/cuentas.service';
         EmptyDemoComponent,
         FileDemoComponent,
         DocumentationComponent,
-        PosConsolidadaComponent
+        PosConsolidadaComponent,
+        HistorialComponent,
+        FormatoFechaPipe
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
