@@ -36,7 +36,8 @@ export class HistorialComponent implements OnInit {
     //this.nCedula  = "1004456891";
     this.nCedulaKYC = "1004456891";// =  "1007785605";
     //this.fechaDesde = new Date();
-    //this.fechaHasta = new Date();
+    //this.fechaHasta = new Date();{
+
     this.puedoBuscar();
     this.obtenerListaCuentas();
     this.cols = [

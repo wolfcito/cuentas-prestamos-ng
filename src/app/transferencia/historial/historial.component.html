@@ -28,28 +28,34 @@
     <br/> 
 
       <br/>
-      <p-table [columns]="cols" [value]="transferencias" selectionMode="single" dataKey="documento" [(selection)]="transferenciaSeleccionada"
-        [paginator]="true" [rows]="10" [responsive]="true" paginatorPosition="both">
-        <ng-template pTemplate="caption">
-          LISTA DE TRANSFERENCIAS
+      <p-table [value]="transferencias" selectionMode="single" dataKey="documento" [(selection)]="transferenciaSeleccionada"
+      [paginator]="true" [rows]="10" [responsive]="true" paginatorPosition="both">
+          <ng-template pTemplate="caption">
+              LISTA DE TRANSFERENCIAS
+            </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th >Documento</th>
+                <th>Cuenta de Destino</th>
+                <th>Tipo</th>
+                <th>Concepto</th>
+                <th >Fecha</th>
+                <th>Saldo</th>
+                <th>Valor</th>
+            </tr>
         </ng-template>
-        <ng-template pTemplate="header" let-columns>
-          <tr>
-            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
-              {{col.header}}
-              <p-sortIcon [field]="col.field"></p-sortIcon>
-            </th>
-          </tr>
+        <ng-template pTemplate="body" let-hitem>
+            <tr>
+                <td>{{hitem.documento}}</td>
+                <td>{{hitem.cuentaDestino}}</td>
+                <td>{{hitem.tipo}}</td>
+                <td>{{hitem.concepto}}</td>
+                <td>{{hitem.fecha | formatoFecha}}</td>
+                <td>{{hitem.saldo}}</td>
+                <td>{{hitem.valor}}</td>
+            </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
-          <tr [pSelectableRow]="rowData">
-            <td *ngFor="let col of columns">
-              <span class="ui-column-title">{{col.header}}</span>
-              {{rowData[col.field] }}
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
+    </p-table>
 
     </div>
   
