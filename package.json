@@ -24,7 +24,7 @@
         "chart.js": "^2.9.4",
         "core-js": "2.5.7",
         "font-awesome": "4.7.0",
-        "fullcalendar": "4.0.0-alpha.2",
+        "fullcalendar": "6.0.2",
         "intl": "1.2.5",
         "primeicons": "1.0.0",
         "primeng": "7.0.0",
